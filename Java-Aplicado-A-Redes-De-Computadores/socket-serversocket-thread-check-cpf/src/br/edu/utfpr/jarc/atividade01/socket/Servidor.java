@@ -17,9 +17,6 @@ public class Servidor {
 	 * @parm porta é o número da porta que fica sendo escutada
 	 */
 
-	private DataInputStream entrada;
-	private DataOutputStream saida;
-
 	public void iniciarServidor(int porta) {
 
 		String nome = Thread.currentThread().getName();
@@ -27,10 +24,8 @@ public class Servidor {
 
 		try (ServerSocket server = new ServerSocket(porta); Socket socket = server.accept();) {
 
-			entrada = new DataInputStream(socket.getInputStream());
-			saida = new DataOutputStream(socket.getOutputStream());
-
-			saida.writeBoolean(new ValidadorCpf(entrada.readUTF()).verificarCPF());
+			new DataOutputStream(socket.getOutputStream()).writeBoolean(
+					new ValidadorCpf(new DataInputStream(socket.getInputStream()).readUTF()).verificarCPF());
 
 		} catch (Exception e) {
 

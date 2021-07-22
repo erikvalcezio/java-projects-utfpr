@@ -16,25 +16,19 @@ public class Cliente {
 	 * @parm porta é o número da porta 
 	 */
 	
-	private static DataInputStream entrada;
-	private static DataOutputStream saida;
-	
 	public void iniciarCliente(String host, int porta) {
 		String nome = Thread.currentThread().getName();
 		System.out.println("Executando " + nome + " " + Calendar.getInstance().getTime() + " :");
 		
 			try (Socket socket = new Socket(host, porta)){
-				
-				entrada = new DataInputStream(socket.getInputStream());
-				saida = new DataOutputStream(socket.getOutputStream());
-				
+							
 				BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 				System.out.print("Digite o CPF : ");
 				String cpf = br.readLine();
 						
-				saida.writeUTF(cpf);
+				new DataOutputStream(socket.getOutputStream()).writeUTF(cpf);
 				  
-				boolean resultado= entrada.readBoolean();
+				boolean resultado= new DataInputStream(socket.getInputStream()).readBoolean();
 	            System.out.println("O Resultado da validação (true or false) : " + resultado);
 	            System.out.println(resultado ? "Seu CPF é Válido" : "Por favor, verifique o seu CPF");
 				

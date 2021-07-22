@@ -4,8 +4,6 @@ public class ValidadorCpf {
 	/**
 	 * @author Erik Valcezio
 	 * data: 11/07/2021
-	 * Criado com base do autor djJoe no link https://www.hardware.com.br/comunidade/tutorial-cpf/1261362/
-	 * Porém foi modificado com melhorias em todos metódos que estão comentados
 	 * 
 	 */
 	
@@ -22,11 +20,14 @@ public class ValidadorCpf {
 		removerCaracteres();
 		return (verificarSeTamanhoInvalido() && verificarSeDigIguais() && calculoComCpf());
 	}
+	
+	/**
+	 * Limpa caracteres especiais, geralmente digitados no CPF
+	 */
 
 	private void removerCaracteres() {
 		this.cpf = this.cpf.replace("-", "");
-		this.cpf = this.cpf.replace(".", "");
-		System.out.println("removerCaracteres : " + this.cpf);
+		this.cpf = this.cpf.replace(".", "");		
 	}
 
 	public boolean verificarSeTamanhoInvalido() {

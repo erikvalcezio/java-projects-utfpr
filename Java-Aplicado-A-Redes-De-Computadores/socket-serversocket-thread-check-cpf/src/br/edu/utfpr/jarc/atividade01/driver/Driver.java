@@ -1,6 +1,6 @@
 package br.edu.utfpr.jarc.atividade01.driver;
-import br.edu.utfpr.jarc.atividade01.thread.TarefaInicarCliente;
-import br.edu.utfpr.jarc.atividade01.thread.TarefaInicarServidor;
+import br.edu.utfpr.jarc.atividade01.socket.Cliente;
+import br.edu.utfpr.jarc.atividade01.socket.Servidor;
 public class Driver {	
 	/**
 	 * @author Erik Valcezio data: 11/07/2021 - Aplicação orientada a comunicação
@@ -11,13 +11,11 @@ public class Driver {
 	private static int porta = 54320;
 	private static String host = "127.0.0.1";	
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) {		
 		
-		Thread tarefaServidor = new Thread(new TarefaInicarServidor(porta), "Thread_Servidor");
-		Thread tarefaCliente = new Thread(new TarefaInicarCliente(host, porta), "Thread_Cliente");			
+		new Thread(() -> new Cliente().iniciarCliente(host, porta), "Thread_Cliente").start();		
+		new Thread(() -> new Servidor().iniciarServidor(porta), "Thread_Servidor").start();
 		
-		tarefaCliente.start();
-		tarefaServidor.start();			
 	}
 
 }
