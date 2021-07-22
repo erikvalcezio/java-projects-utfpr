@@ -11,7 +11,7 @@ public class Driver {
 	private static int porta = 54320;
 	private static String host = "127.0.0.1";	
 	
-	public static void main(String[] args) {		
+	public static void main(String[] args) {
 		
 		new Thread(() -> new Cliente().iniciarCliente(host, porta), "Thread_Cliente").start();		
 		new Thread(() -> new Servidor().iniciarServidor(porta), "Thread_Servidor").start();
