@@ -1,5 +1,4 @@
 package br.edu.utfpr.jarc.atividade01.driver;
-import br.edu.utfpr.jarc.atividade01.socket.Servidor;
 import br.edu.utfpr.jarc.atividade01.thread.TarefaInicarCliente;
 import br.edu.utfpr.jarc.atividade01.thread.TarefaInicarServidor;
 public class Driver {	

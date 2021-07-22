@@ -8,7 +8,7 @@ public class TarefaInicarCliente implements Runnable {
 	 * Implenta a interface Runnable para controle da Classe Cliente usando Thread
 	 */
 	
-	private Cliente cliente = new Cliente();
+	private Cliente cliente;
 	private String host;
 	private int porta;	
 	
@@ -20,6 +20,7 @@ public class TarefaInicarCliente implements Runnable {
 	
 	@Override
 	public void run() {
+		cliente = new Cliente();
 		System.out.println("Iniciando o cliente");
 		cliente.iniciarCliente(host, porta);		
 	}

@@ -11,8 +11,9 @@ import br.edu.utfpr.jarc.atividade01.util.ValidadorCpf;
 public class Servidor {
 	/**
 	 * @author Erik Valcezio data: 11/07/2021 - Aplicação orientada a comunicação
-	 * Classe com as dependencias necessaria para instanciar "Servidor" ServerSocket e Socket
-	 * para atender atividade01 Java Aplicado A Redes De Computadores na UTFPR
+	 *         Classe com as dependencias necessaria para instanciar "Servidor"
+	 *         ServerSocket e Socket para atender atividade01 Java Aplicado A Redes
+	 *         De Computadores na UTFPR
 	 * @parm porta é o número da porta que fica sendo escutada
 	 */
 
@@ -24,19 +25,17 @@ public class Servidor {
 		String nome = Thread.currentThread().getName();
 		System.out.println("Executando " + nome + " " + Calendar.getInstance().getTime() + " :");
 
-		synchronized (this) {
-			try (ServerSocket server = new ServerSocket(porta); Socket socket = server.accept();) {
+		try (ServerSocket server = new ServerSocket(porta); Socket socket = server.accept();) {
 
-				entrada = new DataInputStream(socket.getInputStream());
-				saida = new DataOutputStream(socket.getOutputStream());
+			entrada = new DataInputStream(socket.getInputStream());
+			saida = new DataOutputStream(socket.getOutputStream());
 
-				saida.writeBoolean(new ValidadorCpf(entrada.readUTF()).verificarCPF());
+			saida.writeBoolean(new ValidadorCpf(entrada.readUTF()).verificarCPF());
 
-			} catch (Exception e) {
-			
-				System.out.println("Porta: " + porta + " está em uso, não foi possível iniciar o servidor");
+		} catch (Exception e) {
 
-			}
+			System.out.println("Porta: " + porta + " está em uso, não foi possível iniciar o servidor");
+
 		}
 	}
 }

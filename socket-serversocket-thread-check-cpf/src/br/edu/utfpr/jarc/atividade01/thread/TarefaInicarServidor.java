@@ -8,7 +8,7 @@ public class TarefaInicarServidor implements Runnable {
 	 * Implenta a interface Runnable para controle da Classe Servidor usando Thread
 	 */
 
-	private Servidor servidor = new Servidor();
+	private Servidor servidor;
 	private int porta;
 	
 	public TarefaInicarServidor(int porta) {
@@ -17,7 +17,8 @@ public class TarefaInicarServidor implements Runnable {
 	}
 
 	@Override
-	public void run() {	
+	public void run() {
+		servidor = new Servidor();
 		System.out.println("Iniciando o servidor");
 		servidor.iniciarServidor(porta);
 	}

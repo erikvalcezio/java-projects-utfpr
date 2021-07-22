@@ -23,7 +23,6 @@ public class Cliente {
 		String nome = Thread.currentThread().getName();
 		System.out.println("Executando " + nome + " " + Calendar.getInstance().getTime() + " :");
 		
-		synchronized (this) {
 			try (Socket socket = new Socket(host, porta)){
 				
 				entrada = new DataInputStream(socket.getInputStream());
@@ -42,9 +41,7 @@ public class Cliente {
 			}catch (Exception e) {
 				System.out.println("Erro cliente");
 			}
-		
-		}
-		
+				
 	}
 
 }
