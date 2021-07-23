@@ -1,0 +1,93 @@
+/*
+Faculdade: Universidade Tecnológica Federal do Paraná
+Curso:     Especialização em Tecnologia Java
+Nome:      Erik Eduardo Valcezio RA: 02329611
+DATA:      02/07/2021
+*/
+
+/*01. Obter o nome do cantor que possui o menor número de gravações (deve exibir todos os nomes de cantores que tenham o valor mínimo).*/
+
+SELECT cantor.nome_cantor, COUNT(*) AS num_gravacoes FROM cantor, gravacao 
+WHERE 
+cantor.cod_cantor = gravacao.cod_cantor
+GROUP BY cantor.nome_cantor
+HAVING  COUNT(*)=(SELECT MIN(gravacao.cod_cantor) FROM  gravacao);
+
+
+/*02.Obter o nome do cantor que gravou com o maior número de gravadoras diferentes.*/
+
+SELECT c.nome_cantor AS cantor, COUNT(DISTINCT r.nome_gravadora) AS num_gravacoes
+FROM cantor C
+LEFT JOIN gravacao G
+ON C.cod_cantor = g.cod_cantor
+LEFT JOIN gravadora R
+ON G.cod_gravadora = R.cod_gravadora
+GROUP BY C.nome_cantor
+HAVING COUNT(DISTINCT r.nome_gravadora)=(SELECT MAX(tmp.num_gravacoes_tmp) as num_gravacoes_tmp2
+FROM
+(SELECT c.nome_cantor AS cantor_tmp, COUNT(DISTINCT r.nome_gravadora) AS num_gravacoes_tmp
+FROM cantor C
+LEFT JOIN gravacao G
+ON c.cod_cantor = g.cod_cantor
+LEFT JOIN gravadora R
+ON g.cod_gravadora = r.cod_gravadora
+GROUP BY c.nome_cantor) AS tmp)
+
+
+/*03.Obter o nome do cantor que possui a maior média de duração de gravações.*/
+
+SELECT  cantor.nome_cantor, AVG(musica.duracao) AS media
+FROM cantor
+LEFT JOIN gravacao
+ON cantor.cod_cantor = gravacao.cod_cantor
+LEFT JOIN musica
+ON  musica.cod_musica =  gravacao.cod_musica
+
+GROUP BY cantor.nome_cantor
+ORDER BY media DESC LIMIT 1
+
+/*04.Selecionar os cantores que nunca gravaram música com a gravadora Sony.*/
+
+SELECT cantor.nome_cantor
+FROM cantor
+LEFT JOIN gravacao
+ON cantor.cod_cantor = gravacao.cod_cantor
+LEFT JOIN gravadora
+ON  gravadora.cod_gravadora =  gravacao.cod_gravadora
+WHERE gravadora.nome_gravadora <> 'Sony'
+GROUP BY cantor.nome_cantor
+
+/*05.Selecione o nome das músicas, nome dos cantores e as datas de gravação, para as gravações do ano de 2004.*/
+
+SELECT cantor.nome_cantor AS cantor, musica.titulo AS musica, gravacao.data_gravacao
+FROM cantor
+LEFT JOIN gravacao
+ON cantor.cod_cantor = gravacao.cod_cantor
+LEFT JOIN musica
+ON  musica.cod_musica =  gravacao.cod_musica
+WHERE TO_CHAR(gravacao.data_gravacao, 'YY') = 04
+
+
+/*06.Selecione o nome de cada cantor e a data da sua última gravação em ordem decrescente de data. Caso não tenha gravado nada, a data deve aparecer em branco.*/
+
+SELECT cantor.nome_cantor,  MAX(gravacao.data_gravacao) AS data_ultima_gravacao
+FROM cantor
+LEFT JOIN gravacao
+ON cantor.cod_cantor = gravacao.cod_cantor
+LEFT JOIN musica
+ON  musica.cod_musica =  gravacao.cod_musica
+GROUP BY cantor.nome_cantor
+ORDER BY data_ultima_gravacao DESC
+
+
+/*07.Dadas as tabelas pessoa e fone, retorne os números de telefone residencial, comercial e Celular de cada pessoa. O retorno deve conter uma linha para cada pessoa, com a coluna ‘nome’, seguida dos números.*/
+
+SELECT P.nome_pessoa,  
+(SELECT DISTINCT F.numero FROM fone WHERE F.tipo = 'R' OR F.tipo IS NOT NULL ) AS fone_residencial, 
+(SELECT DISTINCT F.numero FROM fone WHERE F.tipo = 'C' OR F.tipo IS NOT NULL ) AS fone_comercial ,  
+(SELECT DISTINCT F.numero FROM fone WHERE F.tipo = 'L' OR F.tipo IS NOT NULL ) AS celular
+FROM pessoa AS P
+LEFT JOIN fone AS F
+ON P.cod_pessoa = F.cod_pessoa
+WHERE F.tipo IS NOT NULL
+GROUP BY P.nome_pessoa

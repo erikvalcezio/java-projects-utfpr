@@ -1,0 +1,14 @@
+cod_func,cod_dpto,nome_func,qtd_dependente,salario,cargo,cod_dpto,nome_dpto
+1,1,Leonard Hofstadter,0,19000.00,Fisico,1,Ciencia
+2,1,Sheldon Cooper,0,22000.00,Fisico Teorico,1,Ciencia
+3,2,Howard Wolowitz,1,14000.00,Engeiro,2,Desenvolvimento
+4,3,Penny,3,2200.00,Auxiliar Administrativa,3,Recursos Humanos
+5,1,Sheldon Cooper,0,22000.00,Fisico Teorico,1,Ciencia
+6,1,Bernadette Maryann Rostenkowski,1,25000.00,Microbiologista,1,Ciencia
+7,5,Stuart Bloom,0,14000.00,Sac,5,Atendimento ao Publico
+8,3,Penny,3,2200.00,Auxiliar Administrativa,3,Recursos Humanos
+9,4,Amy Farrah Fowler,4,5200.00,Dba,4,Tecnologia
+10,4,Rajesh Koothrappali,4,1800.00,Analista de Redes,4,Tecnologia
+11,2,Priya Koothrappali,4,8000.00,Gerente,2,Desenvolvimento
+12,6,Erik Valcezio,4,8000.00,Diretor,6,Diretoria
+13,3,Lucky ska walker,0,22000.00,Recrutador,3,Recursos Humanos

@@ -1,0 +1,27 @@
+Responda as seguintes questões em um único arquivo texto. Entregue o arquivo no formato PDF. 
+
+1. Quais são as motivações para o uso dos genéricos em Java? 
+
+2. Um tipo primitivo pode ser usado como argumento de tipo? 
+
+3. Mostre como declarar uma classe chamada TesteDoisParametros que use dois parâmetros genéricos. 
+
+4. Agora, altere TesteDoisParametros para que seu segundo parâmetro de tipo seja subclasse do primeiro parâmetro de tipo. 
+
+5. No que diz respeito aos genéricos, o que é o símbolo "?" e o que ele faz? 
+
+6. O argumento curinga pode ser limitado?
+
+7. Um método genérico chamado MeuGenerico( ) tem um parâmetro de tipo. Além disso, MeuGenerico( ) tem um parâmetro cujo tipo é o do parâmetro de tipo. Ele também retorna um objeto desse parâmetro de tipo. Mostre como declarar MeuGenerico( ).
+
+8. Dada a interface genérica a seguir 
+
+    interface IGenericoIF<T, V extends T> { // ... 
+
+mostre a declaração de uma classe chamada MinhaClasse que implemente IGenericoIF.
+
+9. Dada uma classe genérica chamada Contador<T>, mostre como criar um objeto de seu tipo bruto.
+
+10. Como a linha a seguir pode ser simplificada?
+
+    MinhaClasse<Double,String> obj = new MinhaClasse<Double,String>(1.1,"Hi");
