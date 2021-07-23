@@ -1,1 +1,2 @@
-Ativiadde semana 1 proposta na disciplina
+Ativiadde semana 1 proposta na disciplina 
+Query, Create DB, Create Table, Inserts, Views, Users, Permissões
