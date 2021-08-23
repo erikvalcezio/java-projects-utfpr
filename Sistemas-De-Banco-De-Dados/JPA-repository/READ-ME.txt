@@ -1,0 +1,46 @@
+Utilizando o cenário da Atividade 2:
+Para a situação apresentada abaixo, faça o seguinte:
+
+Cenário
+Em uma determinada empresa, todo departamento tem um código numérico e um nome.
+Todos os funcionários da empresa são cadastrados com seu código, nome, quantidade de dependentes, salário e cargo.
+Cada funcionário está lotado em somente um departamento.
+
+
+Crie um projeto Java Application (with Maven) a partir dos códigos apresentados nos tópicos:
+• Configuração do Spring Data JPA;
+• Lidando com Entidades; e
+• Repositórios.
+
+====>03/08/2021 Parte 2
+
+Acrescentar no projeto Java Application (with Maven) da Atividade 05 as seguintes consultas:
+• Listar um funcionário pelo seu nome e quantidade de dependentes utilizando consulta
+por palavras-chaves.
+
+• Listar todos os funcionários de um determinado departamento por JPQL via @Query.
+
+• Listar o primeiro departamento cadastrado.
+
+• Listar o primeiro funcionário que tem o maior salário.
+
+• Listar os 3 (três) primeiros funcionários que tem os maiores salários.
+
+• Listar os funcionários que não tem dependentes em ordem crescente de nome por JPQL
+via @Query.
+
+• Listar os funcionários que tem salário maior que um determinado valor por JPQL
+sobrescrevendo palavras-chaves @Query.
+
+• Listar os funcionários que tem salário maior que um determinado valor por @Query
+com native query.
+
+• Alterar a classe Funcionario e criar uma consulta para listar os funcionários com uma
+determinada quantidade de dependentes por @NamedQuery.
+
+• Alterar a classe Funcionario e criar uma consulta para listar os funcionários que
+contenham em qualquer parte do seu nome um determinado nome por
+@NamedNativeQuery.
+
+• Alterar a interface FuncionarioRepository para utilizar a @NamedQuery e
+@NamedNativeQuery realizadas nas questões 9 e 10 (respectivamente).

@@ -7,8 +7,27 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Scanner;
 
-public class FileSystem {
+/**
+ * Activity proposed in the discipline to learn
+ * Java NIO 2 first version belongs to the course tutor Arthur Gregorio
+ * purpose of the main class to service the file system
+ *  
+ * @version 1.0.0
+ * @author Erik Eduardo Valcezio * 
+ *
+ */
 
+public class FileSystem {
+	
+    /**
+     * main directory, set the ROOT parameter value with root path to simulate the file system
+     * Exemple: 
+     * ..ROOT = 
+     * "G:" + File.separator + "UTFPR" + File.separator
+			+ "2 - Linguagem De Programação Java II 26_06_21 a 16_09_21" + File.separator
+			+ "Bloco 2 - B2A1 - Sistema de arquivos" + File.separator + "hd" + File.separator;
+     */
+	
 	public static final String ROOT = "G:" + File.separator + "UTFPR" + File.separator
 			+ "2 - Linguagem De Programação Java II 26_06_21 a 16_09_21" + File.separator
 			+ "Bloco 2 - B2A1 - Sistema de arquivos" + File.separator + "hd" + File.separator;

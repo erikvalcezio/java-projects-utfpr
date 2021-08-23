@@ -4,6 +4,13 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
+/**  
+* 
+* @version 1.0.0
+* @author Erik Eduardo Valcezio 
+*
+*/
+
 public class FileReader {
 
 	private Path path;

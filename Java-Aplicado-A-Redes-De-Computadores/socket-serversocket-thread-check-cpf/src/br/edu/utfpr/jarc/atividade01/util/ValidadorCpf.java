@@ -4,7 +4,6 @@ public class ValidadorCpf {
 	/**
 	 * @author Erik Valcezio
 	 * data: 11/07/2021
-	 * 
 	 */
 	
 	private String cpf;

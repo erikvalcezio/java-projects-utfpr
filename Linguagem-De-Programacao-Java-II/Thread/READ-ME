@@ -1,0 +1,42 @@
+B3E2 - Corrida de motos
+Corrida de Motocicletas 
+
+Objetivo:
+
+Exercitar o conceito e a prática de Race Condition e Critical Sections através do uso de sincronismo de métodos e/ou objetos para simular uma corrida de motos onde o ganhador é aquele que somar mais pontos ao acessar a região crítica (ou linha de chegada).
+
+Requisitos:
+
+1. O programa deve criar no mínimo 10 threads que vão representar cada competidor, cada competidor deve usar o seguinte nome: Competidor #N (onde N é o número da thread) (10 pts).
+
+2. Haverá no mínimo 10 corridas (10 pts).
+
+3. Uma corrida só inicia após o fim da corrida anterior, ou seja, quando todos os competidores chegaram na linha de chegada (10 pts).
+
+4. O placar da nossa corrida será contabilizado a cada chegada na linha de chegada (área critica), o competidor receberá uma quantidade de pontos igual a sua posição em relação aos demais competidores, ou seja: (30 pts).
+
+- Competidor 3 chegou primeiro na área sincronizada: recebe 10 pontos.
+
+- Competidor 8 chegou em segundo na área sincronizada: recebe 9 pontos.
+
+- ....
+
+- Competidor 10 chegou em ultimo na área sincronizada: recebe 1 pontos.
+
+5. O ganhador do campeonato (conjunto de corridas) é aquele competidor que somou mais pontos durante todas as corridas (15 pts).
+
+6. Ao final do campeonato deverá ser apresentado o placar com o total dos pontos e deverá ser informado quem é o competidor vencedor (15 pts).
+
+Critérios de aceite e avaliação do exercício:
+
+1. Entrega no prazo: 10 pontos.
+
+2. Cada requisito possui um peso que compõe 90 pontos no total, cumpra todos para ter nota máxima, cumpra alguns e sua nota será aplicada conforme cada requisito cumprido.
+
+Importante:
+
+- Cópias e/ou exercícios duplicados/idênticos serão descartados, apenas os pontos da entrega serão contabilizados.
+
+- Faça o programa todo em apenas uma classe, utilize recursos como classes aninhadas para organização.
+
+- Envie APENAS o arquivo .java do programa, nada mais.

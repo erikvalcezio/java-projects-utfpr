@@ -6,6 +6,12 @@ import java.nio.file.Path;
 import java.util.Optional;
 import java.nio.file.attribute.BasicFileAttributes;
 
+/**  
+* 
+* @version 1.0.0
+* @author Erik Eduardo Valcezio
+*/
+
 public enum Command {
 
 	LIST() {
