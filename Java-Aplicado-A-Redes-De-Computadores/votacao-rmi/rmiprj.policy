@@ -1,0 +1,4 @@
+grant codeBase "file:C:/Users/erik_/OneDrive/developer/votacao-rmi"{
+    // Allow everything for now
+    permission java.security.AllPermission;
+};
