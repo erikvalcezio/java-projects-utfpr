@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Tarefa EJB</title>
+    </h:head>
+    <h:body>
+       <h2>Jogo de Somar</h2>
+       <h3>Informe o nome do jogador:</h3>
+               
+        <h:form>
+            <h:inputText value="#{jSFJogador.nome}"/>
+            <h:commandButton value="Inserir Jogador" action="#{jSFJogador.cadastrarJogador()}" />
+        </h:form>
+       
+       <h3>Acerte o resultado da operação de A + B:</h3>
+            <h:form> 
+                
+                Se A recebe
+                <h:outputText value="#{jSFJogador.valorA}" />
+                  
+                e B recebe  
+                <h:outputText value="#{jSFJogador.valorB}" />
+                                
+                .Qual é o valor de A + B ?               
+                &#160; <!--espaço-->
+                <h:inputText style="width: 2%" value="#{jSFJogador.resultado}" />
+                
+                &#160; <!--espaço-->                
+                <h:commandButton value="Verificar" action="#{jSFJogador.verificarNovoVencedor()}"/>
+                
+                &#160; <!--espaço--> 
+                Resposta está:
+                <h:outputText value="#{jSFJogador.messagemGameResultado}" />
+                            
+            </h:form> 
+
+         <h3>Rank dos Jogadores:</h3>
+            <h:form> 
+                <h:dataTable border="1" cellpadding="4" value="#{jSFJogador.all}" var="player">
+                    <h:column>
+                        <h:outputText value="#{player.posicao}" />
+                        º
+                    </h:column> 
+                    <h:column>
+                        <h:outputText value="#{player.nome}" />
+                    </h:column>
+                    <h:column>
+                        <h:outputText value="#{player.pontuacao}" />
+                        Pontos
+                    </h:column>                     
+                </h:dataTable>            
+            </h:form>  
+         
+            
+            <h:form>
+                <h:outputText value="#{jSFJogador.messageRecord}" />
+                        
+            </h:form>   
+                 
+    </h:body>
+</html>
+

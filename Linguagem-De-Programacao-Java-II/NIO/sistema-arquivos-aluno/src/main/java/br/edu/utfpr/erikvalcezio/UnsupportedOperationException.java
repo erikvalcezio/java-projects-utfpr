@@ -9,7 +9,12 @@ package br.edu.utfpr.erikvalcezio;
 
 public class UnsupportedOperationException extends RuntimeException {
 
-    public UnsupportedOperationException(String message) {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1813827068113405281L;
+
+	public UnsupportedOperationException(String message) {
         super(message);
     }
 }
