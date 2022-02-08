@@ -86,7 +86,7 @@
     </RadioGroup>
 
     <Spinner
-        android:id="@+id/spinner"
+        android:id="@+id/spinnerSetor"
         android:layout_width="380dp"
         android:layout_height="48dp"
         android:layout_marginTop="30dp"
@@ -95,13 +95,13 @@
         app:layout_constraintTop_toBottomOf="@+id/radioGroupUnidadeMedida" />
 
     <CheckBox
-        android:id="@+id/checkBox"
-        android:layout_width="90dp"
+        android:id="@+id/checkBoxFavorito"
+        android:layout_width="92dp"
         android:layout_height="48dp"
         android:layout_marginTop="26dp"
         android:text="@string/favorito"
-        app:layout_constraintEnd_toEndOf="@+id/spinner"
-        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+        app:layout_constraintEnd_toEndOf="@+id/spinnerSetor"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerSetor" />
 
     <Button
         android:id="@+id/buttonLimpar"
@@ -114,7 +114,7 @@
         android:text="@string/limpar"
         android:textSize="16sp"
         app:layout_constraintEnd_toStartOf="@+id/button2"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox" />
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxFavorito" />
 
     <Button
         android:id="@+id/button2"
@@ -123,8 +123,8 @@
         android:layout_height="wrap_content"
         android:text="@string/salvar"
         android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/spinner"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox" />
+        app:layout_constraintEnd_toEndOf="@+id/spinnerSetor"
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxFavorito" />
 
     <TextView
         android:id="@+id/textView3"
@@ -147,8 +147,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/setor"
-        app:layout_constraintBottom_toTopOf="@+id/spinner"
-        app:layout_constraintStart_toStartOf="@+id/spinner" />
+        app:layout_constraintBottom_toTopOf="@+id/spinnerSetor"
+        app:layout_constraintStart_toStartOf="@+id/spinnerSetor" />
 
     <TextView
         android:id="@+id/textView4"
@@ -168,7 +168,7 @@
 
     <EditText
         android:id="@+id/editTextNumberDecimalTotal"
-        android:layout_width="155dp"
+        android:layout_width="183dp"
         android:layout_height="45dp"
         android:layout_marginTop="26dp"
         android:ems="10"

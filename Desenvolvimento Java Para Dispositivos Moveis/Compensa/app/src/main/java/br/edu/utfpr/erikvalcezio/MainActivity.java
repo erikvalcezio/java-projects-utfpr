@@ -1,18 +1,27 @@
 package br.edu.utfpr.erikvalcezio;
 
+import static java.util.Arrays.asList;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView descricaoProduto, preco, quantidade, total;
-    private RadioGroup unidadeMedida;
+    private TextView descricaoProdutoText, precoText, quantidadeText, totalText;
+    private RadioGroup unidadeMedidaRadioGroup;
+    private Spinner setorSpinner;
+    private CheckBox favoritoCheckBox;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,39 +29,70 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //TextView
-        this.descricaoProduto = findViewById(R.id.editTextTextPersonNameDescricaoProduto);
-        this.preco = findViewById(R.id.editTextTextPersonNamePreco);
-        this.quantidade = findViewById(R.id.editTextTextPersonNameQuantidade);
-        this.total = findViewById(R.id.editTextNumberDecimalTotal);
+        this.descricaoProdutoText = findViewById(R.id.editTextTextPersonNameDescricaoProduto);
+        this.precoText = findViewById(R.id.editTextTextPersonNamePreco);
+        this.quantidadeText = findViewById(R.id.editTextTextPersonNameQuantidade);
+        this.totalText = findViewById(R.id.editTextNumberDecimalTotal);
 
         //RadioGroup
-        this.unidadeMedida = findViewById(R.id.radioGroupUnidadeMedida);
+        this.unidadeMedidaRadioGroup = findViewById(R.id.radioGroupUnidadeMedida);
+
+        //Spinner
+        this.setorSpinner = findViewById(R.id.spinnerSetor);
+
+        //CheckBox
+        this.favoritoCheckBox = findViewById(R.id.checkBoxFavorito);
+
+        this.popularSpinner();
 
     }
 
     public void limparCampos(View view){
-        this.descricaoProduto.setText("");
-        this.preco.setText("");
-        this.quantidade.setText("");
-        this.total.setText("");
-        this.unidadeMedida.clearCheck();
+        this.descricaoProdutoText.setText("");
+        this.precoText.setText("");
+        this.quantidadeText.setText("");
+        this.totalText.setText("");
+        this.unidadeMedidaRadioGroup.clearCheck();
+        this.setorSpinner.setSelection(0);
+        this.favoritoCheckBox.setChecked(false);
 
-        this.descricaoProduto.hasFocus();
+        //this.descricaoProdutoText.();
     }
 
     public void calcularTotal(View View) {
-        this.total.setText("");
+        this.totalText.setText("");
         Integer qtd = 0;
         BigDecimal price = BigDecimal.ZERO;
         BigDecimal somaTotal = BigDecimal.ZERO;
 
-        if (this.quantidade.getText().toString().trim() != null
-            && this.preco.getText().toString().trim()  != null ) {
-            qtd =  Integer.parseInt(this.quantidade.getText().toString().trim());
-            price =  new BigDecimal(this.preco.getText().toString().trim());
+        if (this.quantidadeText.getText().toString().trim() != null
+            && this.precoText.getText().toString().trim()  != null ) {
+            qtd =  Integer.parseInt(this.quantidadeText.getText().toString().trim());
+            price =  new BigDecimal(this.precoText.getText().toString().trim());
             somaTotal = price.multiply(new BigDecimal(qtd));
-            this.total.setText(somaTotal.toString());
+            this.totalText.setText(somaTotal.toString());
         }
+    }
+
+    public void popularSpinner(){
+        List<String> listaSetor = new ArrayList<>(asList(
+                "Selecione o Setor do Produto",
+                "Higiene e limpeza",
+                "Frutas, verduras e legumes",
+                "Mercearia",
+                "Padaria",
+                "Enlatados",
+                "Cereais",
+                "Rotisseria",
+                "Açougue",
+                "Frios e laticínios",
+                "Adega e bebidas"
+        )); //Será implementado com a classe Setor
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
+                                                           android.R.layout.simple_list_item_1,
+                                                           listaSetor);
+        setorSpinner.setAdapter(adapter);
     }
 
 }
