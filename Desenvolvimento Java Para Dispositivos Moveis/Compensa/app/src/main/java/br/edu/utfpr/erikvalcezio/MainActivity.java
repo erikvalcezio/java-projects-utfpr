@@ -24,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
         this.descricaoProduto.setText("");
         this.preco.setText("");
         this.quantidade.setText("");
+
+        this.descricaoProduto.hasFocus();
     }
 
 }

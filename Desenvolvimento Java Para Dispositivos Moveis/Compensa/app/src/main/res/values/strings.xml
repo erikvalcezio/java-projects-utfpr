@@ -3,11 +3,13 @@
     <string name="cadastro_de_produto">Cadastro de Produto</string>
     <string name="descricao_do_produto">Descrição do Produto</string>
     <string name="preco_reais">R$ 0,00</string>
-    <string name="quantidade">Quant.</string>
+    <string name="quantidade">Quantidade</string>
     <string name="unidade">Unidade</string>
     <string name="pacote">Pacote</string>
     <string name="setor">Setor</string>
     <string name="favorito">Favorito</string>
     <string name="limpar">Limpar</string>
     <string name="salvar">Salvar</string>
+    <string name="preco">Preço</string>
+    <string name="total">Total</string>
 </resources>
