@@ -15,39 +15,40 @@
         android:text="@string/cadastro_de_produto"
         android:textSize="20sp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="16dp" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/editTextTextPersonNameDescricaoProduto"
         android:layout_width="380dp"
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/descricao_do_produto"
-        android:inputType="textPersonName"
+        android:inputType="textCapSentences"
         android:minHeight="48dp"
         android:textColorHint="#757575"
-        android:textSize="12sp"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="@+id/textView2"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/editTextTextPersonNamePreco"
         android:layout_width="183dp"
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/preco_reais"
-        android:inputType="textPersonName"
+        android:inputType="number"
         android:minHeight="48dp"
         android:textColorHint="#757575"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName2"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
+        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonNameDescricaoProduto"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonNameDescricaoProduto" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName4"
+        android:id="@+id/editTextTextPersonNameQuantidade"
         android:layout_width="183dp"
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
@@ -57,8 +58,8 @@
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:textColorHint="#757575"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName2"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
+        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonNameDescricaoProduto"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonNameDescricaoProduto" />
 
     <RadioGroup
         android:id="@+id/radioGroup"
@@ -66,8 +67,8 @@
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
         android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName4"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName4">
+        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonNameQuantidade"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonNameQuantidade">
 
         <RadioButton
             android:id="@+id/radioButton2"
@@ -90,7 +91,7 @@
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
         android:contentDescription="@string/setor"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName3"
+        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonNamePreco"
         app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
     <CheckBox
@@ -99,17 +100,19 @@
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
         android:text="@string/favorito"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName3"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3" />
+        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonNamePreco"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonNamePreco" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonLimpar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
+        android:onClick="limparCampos"
         android:text="@string/limpar"
+        android:textSize="16sp"
         app:layout_constraintEnd_toStartOf="@+id/button2"
         app:layout_constraintTop_toBottomOf="@+id/spinner" />
 
@@ -119,6 +122,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="@string/salvar"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/spinner"
         app:layout_constraintTop_toBottomOf="@+id/spinner" />
 
