@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Compensa</string>
+    <string name="cadastro_de_produto">Cadastro de Produto</string>
+    <string name="descricao_do_produto">Descrição do Produto</string>
+    <string name="preco_reais">R$ 0,00</string>
+    <string name="quantidade">Quant.</string>
+    <string name="unidade">Unidade</string>
+    <string name="pacote">Pacote</string>
+    <string name="setor">Setor</string>
+    <string name="favorito">Favorito</string>
+    <string name="limpar">Limpar</string>
+    <string name="salvar">Salvar</string>
+</resources>
