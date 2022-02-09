@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.text.InputType;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
@@ -15,6 +14,8 @@ import android.widget.Toast;
 
 import java.math.BigDecimal;
 
+import br.edu.utfpr.erikvalcezio.model.Produto;
+
 public class MainActivity extends AppCompatActivity {
 
     private TextView descricaoProdutoText, precoText, quantidadeText, totalText;
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private int quantidadeProdutos;
     private BigDecimal precoProduto;
     private String tipoMedidaProduto;
+    private Produto produto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,9 +74,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void calcularTotal(View View) {
         this.totalText.setText("");
-        Integer qtd = 0;
-        BigDecimal price = BigDecimal.ZERO;
-        BigDecimal somaTotal = BigDecimal.ZERO;
+        int qtd;
+        BigDecimal price;
+        BigDecimal somaTotal;
 
         if (!this.quantidadeText.getText().toString().trim().equals("")
             && !this.precoText.getText().toString().trim().equals("") ) {
@@ -178,12 +180,15 @@ public class MainActivity extends AppCompatActivity {
         this.precoProduto = BigDecimal.ZERO;
 
         if (this.validaCampos()) {
-            String trocarDesc = this.descricaoProdutoText.getText().toString();
-            BigDecimal trocarPreco = this.precoProduto;
-            int trocarClasseQuantidade = this.quantidadeProdutos;
-            String trocarPelaclasse = this.tipoMedidaProduto;
-            String setor = (String) this.setorSpinner.getSelectedItem();
-            this.favoritoCheckBox.isChecked();
+            this.produto = new Produto();
+            /*
+            produto.setDescricao(this.descricaoProdutoText.getText().toString());
+            produto.setPreco(this.precoProduto);
+            produto.setQuantidade(this.quantidadeProdutos);
+            produto.setNomeUnidade(this.tipoMedidaProduto);
+            produto.setSetor((String) this.setorSpinner.getSelectedItem());
+            produto.setFavorido = this.favoritoCheckBox.isChecked();
+             */
             this.limparCampos();
             this.mostrarMensagem(getString(R.string.produto_cadastrado));
         }
