@@ -24,9 +24,11 @@
         android:layout_height="48dp"
         android:layout_marginTop="56dp"
         android:autofillHints=""
+        android:capitalize="sentences"
         android:ems="10"
         android:hint="@string/descricao_do_produto"
-        android:inputType="textCapSentences"
+        android:inputType="textAutoCorrect"
+        android:maxLength="50"
         android:minHeight="48dp"
         android:textColorHint="#757575"
         android:textSize="18sp"
@@ -42,7 +44,9 @@
         android:ems="10"
         android:hint="@string/preco_reais"
         android:inputType="numberDecimal"
+        android:maxLength="10"
         android:minHeight="48dp"
+        android:onClick="tratarCampoPreco"
         android:textColorHint="#757575"
         app:layout_constraintStart_toStartOf="@+id/editTextTextPersonNameDescricaoProduto"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonNameDescricaoProduto" />
@@ -55,8 +59,10 @@
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/quantidade"
-        android:inputType="textPersonName"
+        android:inputType="number"
+        android:maxLength="3"
         android:minHeight="48dp"
+        android:onClick="calcularTotal"
         android:textColorHint="#757575"
         app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonNameDescricaoProduto"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonNameDescricaoProduto" />
@@ -71,13 +77,13 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonNameQuantidade">
 
         <RadioButton
-            android:id="@+id/radioButton2"
+            android:id="@+id/radioButtonPacote"
             android:layout_width="92dp"
             android:layout_height="48dp"
             android:text="@string/unidade" />
 
         <RadioButton
-            android:id="@+id/radioButton"
+            android:id="@+id/radioButtonUnidade"
             android:layout_width="91dp"
             android:layout_height="48dp"
             android:text="@string/pacote"
@@ -91,6 +97,7 @@
         android:layout_height="48dp"
         android:layout_marginTop="30dp"
         android:contentDescription="@string/setor"
+        android:spinnerMode="dialog"
         app:layout_constraintStart_toStartOf="@+id/editTextNumberDecimalTotal"
         app:layout_constraintTop_toBottomOf="@+id/radioGroupUnidadeMedida" />
 
@@ -110,7 +117,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="12dp"
         android:layout_marginRight="12dp"
-        android:onClick="limparCampos"
+        android:onClick="limpar"
         android:text="@string/limpar"
         android:textSize="16sp"
         app:layout_constraintEnd_toStartOf="@+id/button2"
@@ -118,9 +125,10 @@
 
     <Button
         android:id="@+id/button2"
-        android:layout_marginTop="26dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="26dp"
+        android:onClick="salvarProduto"
         android:text="@string/salvar"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/spinnerSetor"
@@ -171,11 +179,11 @@
         android:layout_width="183dp"
         android:layout_height="45dp"
         android:layout_marginTop="26dp"
+        android:cursorVisible="true"
         android:ems="10"
         android:hint="@string/total"
-        android:inputType="numberDecimal"
+        android:importantForAutofill="no"
         android:minHeight="48dp"
-        android:onClick="calcularTotal"
         android:visibility="visible"
         app:layout_constraintStart_toStartOf="@+id/editTextTextPersonNamePreco"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonNamePreco" />
