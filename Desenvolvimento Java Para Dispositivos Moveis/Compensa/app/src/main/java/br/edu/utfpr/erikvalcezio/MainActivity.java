@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.text.InputType;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private CheckBox favoritoCheckBox;
     private int quantidadeProdutos;
     private BigDecimal precoProduto;
+    private String tipoMedidaProduto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,8 +49,7 @@ public class MainActivity extends AppCompatActivity {
         //CheckBox
         this.favoritoCheckBox = findViewById(R.id.checkBoxFavorito);
 
-        //Events
-        //this.totalText.setOnClickListener(new AdapterView.OnItemClickListener());
+        //Events, implementar
 
         this.popularSpinnerSetor();
 
@@ -142,11 +143,11 @@ public class MainActivity extends AppCompatActivity {
             //RadioGroup
             switch (this.unidadeMedidaRadioGroup.getCheckedRadioButtonId()){
                 case R.id.radioButtonUnidade:
-
+                    this.tipoMedidaProduto = getString(R.string.unidade);
                     break;
 
                 case R.id.radioButtonPacote:
-
+                    this.tipoMedidaProduto = getString(R.string.pacote);
                     break;
 
                 default:
@@ -177,12 +178,10 @@ public class MainActivity extends AppCompatActivity {
         this.precoProduto = BigDecimal.ZERO;
 
         if (this.validaCampos()) {
-            this.descricaoProdutoText.getText();
-            this.precoText.getText();
-
+            String trocarDesc = this.descricaoProdutoText.getText().toString();
+            BigDecimal trocarPreco = this.precoProduto;
             int trocarClasseQuantidade = this.quantidadeProdutos;
-
-            this.unidadeMedidaRadioGroup.getCheckedRadioButtonId();
+            String trocarPelaclasse = this.tipoMedidaProduto;
             String setor = (String) this.setorSpinner.getSelectedItem();
             this.favoritoCheckBox.isChecked();
             this.limparCampos();
