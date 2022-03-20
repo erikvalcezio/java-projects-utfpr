@@ -1,0 +1,16 @@
+<resources>
+  <string-array name="setores">
+      <item>@string/selecione_setor_produto</item>
+      <item>@string/acougue_setor</item>
+      <item>@string/adega_bebida_setor</item>
+      <item>@string/cereais_setor</item>
+      <item>@string/congelados_setor</item>
+      <item>@string/enlatados_setor</item>
+      <item>@string/frios_laticinios_setor</item>
+      <item>@string/hortifruti_setor</item>
+      <item>@string/mercearia_setor</item>
+      <item>@string/padaria_setor</item>
+      <item>@string/rotisseria_setor</item>
+      <item>@string/higiene_limpeza_setor</item>
+  </string-array>
+</resources>
